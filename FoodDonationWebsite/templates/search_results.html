@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fooddonation.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+                <li><a href="{{ url_for('donate') }}">Donate</a></li>
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Search Results for "{{ request.args.get('city') }}"</h2>
+
+        {% if results %}
+            <div class="results-container">
+                {% for organization in results %}
+                    <div class="result-card">
+                        <h3>{{ organization.name }}</h3>
+                        <p><strong>Email:</strong> <a href="mailto:{{ organization.email }}">{{ organization.email }}</a></p>
+                        <p><strong>Phone:</strong> <a href="tel:{{ organization.PhoneNumber }}">{{ organization.PhoneNumber }}</a></p>
+                        <p><strong>Address:</strong> {{ organization.address }}</p>
+                        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query={{ organization.address }}" target="_blank">
+                            View on Google Maps
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-results">No results found for "{{ request.args.get('city') }}".</p>
+        {% endif %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Golden Plate. All rights reserved.</p>
+    </footer>
+</body>
+</html>

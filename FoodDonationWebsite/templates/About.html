@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fooddonation.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+                <li><a href="{{ url_for('donate') }}">Donate</a></li>
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class='about'><h1>About Golden Plate</h1><p>Learn more about Golden Plate and our mission to connect food banks, shelters, and restaurants with donors like you. Golden Plate aims to connect local food banks, shelters, and restaurants with individuals or businesses looking to donate food.
+            Schedule a pick-up or track your donations effortlessly. Let's work together to address food insecurity in our community.</p></section>
+
+        <h2>Meet the Founder</h2>
+            <p>Golden Plate is founded and led by Giuseppe Toritto, our dedicated CEO committed to making food donations easier and more accessible for everyone.</p>
+        </section>
+        
+            <section class='contact'><h1>Contact Us</h1><p>Have questions? Get in touch with us via email or phone. We are here to help!</p></section>
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Golden Plate. All rights reserved.</p>
+    </footer>
+</body>
+</html>

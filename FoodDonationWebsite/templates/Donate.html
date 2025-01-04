@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fooddonation.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+                <li><a href="{{ url_for('donate') }}">Donate</a></li>
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class='about'>
+            <h1>Search and Donate to Locations Accepting Food Donations</h1>
+            <p>Use this tool to find local restaurants or food banks that are accepting donations.</p>
+
+            <!-- Search Form -->
+            <form action="{{ url_for('search') }}" method="GET">
+                <label for="city">Enter City:</label>
+                <input type="text" id="city" name="city" placeholder="City" required>
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <!-- City Buttons Section -->
+        <section class="city-buttons">
+            <h2>Or Choose a City:</h2>
+            <div class="button-container">
+                <a href="{{ url_for('search', city='Chicago') }}" class="city-button">Chicago</a>
+                <a href="{{ url_for('search', city='Houston') }}" class="city-button">Houston</a>
+                <a href="{{ url_for('search', city='Los Angeles') }}" class="city-button">Los Angeles</a>
+                <a href="{{ url_for('search', city='New York City') }}" class="city-button">New York City</a>
+                <a href="{{ url_for('search', city='Philadelphia') }}" class="city-button">Philadelphia</a>
+                <a href="{{ url_for('search', city='Phoenix') }}" class="city-button">Phoenix</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Golden Plate. All rights reserved.</p>
+    </footer>
+</body>
+</html>
